@@ -26,7 +26,8 @@
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE"
-      ]
+      ],
+      "kotlinVersion": "2.0.21"
     },
     "extra": {
       "eas": {
@@ -37,13 +38,13 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "NutriSnap benötigt Kamerazugriff zum Scannen von Barcodes und Fotografieren von Mahlzeiten."
+          "cameraPermission": "NutriSnap benoetigt Kamerazugriff zum Scannen von Barcodes und Fotografieren von Mahlzeiten."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "NutriSnap benötigt Zugriff auf deine Fotos zum Analysieren von Mahlzeiten."
+          "photosPermission": "NutriSnap benoetigt Zugriff auf deine Fotos zum Analysieren von Mahlzeiten."
         }
       ]
     ]
