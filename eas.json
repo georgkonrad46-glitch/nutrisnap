@@ -33,6 +33,11 @@
         "appleId": "georg.konrad46@gmail.com",
         "ascAppId": "com.nutrisnap.app",
         "appleTeamId": ""
+      },
+      "android": {
+        "serviceAccountKeyPath": "",
+        "track": "internal",
+        "releaseStatus": "draft"
       }
     }
   }
