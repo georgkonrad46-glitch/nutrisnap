@@ -12,15 +12,28 @@
       "android": {
         "buildType": "apk",
         "image": "latest"
+      },
+      "ios": {
+        "simulator": false,
+        "image": "latest"
       }
     },
     "production": {
       "android": {
         "buildType": "app-bundle"
+      },
+      "ios": {
+        "image": "latest"
       }
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "georg.konrad46@gmail.com",
+        "ascAppId": "com.nutrisnap.app",
+        "appleTeamId": ""
+      }
+    }
   }
 }

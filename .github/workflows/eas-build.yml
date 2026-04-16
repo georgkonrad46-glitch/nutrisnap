@@ -1,12 +1,23 @@
-name: EAS Build APK
+name: EAS Build
 
 on:
   workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to build'
+        required: true
+        default: 'android'
+        type: choice
+        options:
+          - android
+          - ios
+          - all
 
 jobs:
-  build:
+  build-android:
     name: Build Android APK
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.platform == 'android' || github.event.inputs.platform == 'all' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,5 +38,39 @@ jobs:
 
       - name: Build APK
         run: eas build -p android --profile preview --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+  build-ios:
+    name: Build iOS IPA
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.platform == 'ios' || github.event.inputs.platform == 'all' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fix Expo dependency versions
+        run: npx expo install --fix
+
+      - name: Create Apple API Key file
+        run: |
+          mkdir -p secrets
+          cat > secrets/AuthKey.p8 << 'KEYEOF'
+          ${{ secrets.APPLE_P8_KEY }}
+          KEYEOF
+
+      - name: Build iOS
+        run: eas build -p ios --profile preview --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
