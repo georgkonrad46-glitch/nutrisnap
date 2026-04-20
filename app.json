@@ -19,7 +19,8 @@
       "infoPlist": {
         "NSCameraUsageDescription": "NutriSnap benötigt Kamerazugriff zum Scannen von Barcodes und Fotografieren von Mahlzeiten für die KI-Nährwertanalyse.",
         "NSPhotoLibraryUsageDescription": "NutriSnap benötigt Zugriff auf deine Fotos zum Analysieren von Mahlzeiten.",
-        "CFBundleDevelopmentRegion": "de"
+        "CFBundleDevelopmentRegion": "de",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {

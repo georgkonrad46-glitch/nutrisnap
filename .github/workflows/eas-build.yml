@@ -37,7 +37,7 @@ jobs:
         run: npx expo install --fix
 
       - name: Build APK
-        run: eas build -p android --profile preview --non-interactive
+        run: eas build -p android --profile production --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
@@ -71,6 +71,6 @@ jobs:
           KEYEOF
 
       - name: Build iOS
-        run: eas build -p ios --profile preview --non-interactive
+        run: eas build -p ios --profile production --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
